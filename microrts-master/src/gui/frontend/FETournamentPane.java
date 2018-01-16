@@ -32,6 +32,8 @@ import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
+import javax.swing.text.DefaultCaret;
+
 import rts.units.UnitTypeTable;
 import tournaments.FixedOpponentsTournament;
 import tournaments.LoadTournamentAIs;
@@ -486,6 +488,8 @@ public class FETournamentPane extends JPanel {
         tournamentProgressTextArea.setEditable(false);
         scrollPane.setPreferredSize(new Dimension(512, 192));
         add(scrollPane);
+        DefaultCaret caret = (DefaultCaret)tournamentProgressTextArea.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         
     }
 }
