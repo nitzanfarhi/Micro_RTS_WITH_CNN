@@ -3,6 +3,9 @@ package tournaments;
 import rts.PhysicalGameState;
 import rts.units.Unit;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 /**
@@ -23,6 +26,7 @@ public class GN_Train {
     final static int PLAYER0 = RESOURCE+9;
     final static int PLAYER1 = RESOURCE+10;
     final static int MAP_SIZE = 32;
+    private static final String DATASET = "DATASET.txt";
 
     public static void main(String[] args)
     {
@@ -90,9 +94,12 @@ public class GN_Train {
 
             addInstance(inpArr, snp, map, false);
             addInstance(inpArr, snp, rotateMap(map),true);
-            return;
         }
-        CNN_INPUT(inpArr);
+        try {
+            CNN_INPUT(inpArr);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void addInstance(ArrayList<NeuralInput> inpArr, Snapshot snp, int[][][] map, boolean isFlipped) {
@@ -103,14 +110,9 @@ public class GN_Train {
         n1.p2=snp.p2;
         n1.idx = snp.snapIDX;
         if(isFlipped){
-            System.out.println("p1="+snp.p2);
-            System.out.println("p2="+snp.p1);
+            n1.p1=snp.p2;
+            n1.p2=snp.p1;
         }
-        else{
-            System.out.println("p1="+snp.p1);
-            System.out.println("p2="+snp.p2);
-        }
-        //printMap(newMap);
         inpArr.add(n1);
     }
 
@@ -178,7 +180,31 @@ public class GN_Train {
         oneHot[EMPTY]=0;
     }
 
-    private static void CNN_INPUT(ArrayList<NeuralInput> inpArr) {
+    private static void CNN_INPUT(ArrayList<NeuralInput> inpArr) throws FileNotFoundException {
+        PrintStream out = new PrintStream(new File(DATASET));
+
+        out.println("sizeX="+inpArr.get(0).sizeX);
+        out.println("sizeY="+inpArr.get(0).sizeY);
+        out.println("depth="+inpArr.get(0).depth);
+        out.println("num_of_samples="+inpArr.size());
+        for(NeuralInput ni : inpArr)
+        {
+            out.println("p1="+ni.p1);
+            out.println("p2="+ni.p2);
+            int[][][] map = ni.arr;
+            for(int i=0;i<map.length;i++)
+                for(int j=0;j<map[i].length;j++) {
+                    out.print(i+","+j+",");
+                    for (int k = 0; k < map[i][j].length; k++)
+                        out.print(map[i][j][k]);
+                    out.println();
+                }
+            
+            
+        }
+        
+        out.flush();
+        out.close();
     }
 
     private static void initMap(int[][][] map) {
@@ -193,5 +219,8 @@ public class GN_Train {
         String p1;
         String p2;
         int idx;
+        int sizeX;
+        int sizeY;
+        int depth = 11;
     }
 }

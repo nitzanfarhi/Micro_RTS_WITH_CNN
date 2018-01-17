@@ -211,9 +211,9 @@ public class PVAIML_ED extends AIWithComputationBudget {
             avai.setValue(4, 0);
             avai.setValue(5, 0);
             avai.setValue(6, 0);
-            avai.setValue(7, 8);
+            avai.setValue   (7, 8);
             avai.setValue(8, -1);
-            double enemy = rf.classifyInstance(avai);
+                double enemy = rf.classifyInstance(avai);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(PVAIML_ED.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Erro "+ex);
