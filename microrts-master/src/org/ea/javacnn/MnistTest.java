@@ -26,10 +26,10 @@ public class MnistTest {
     public static void main(String[] argv) {
         List<Layer> layers = new ArrayList<Layer>();
         OutputDefinition def = new OutputDefinition();
-        String PATH = "C:\\Users\\admin\\OneDrive\\BGU\\AI\\Project\\microrts-master\\src\\";
+        String PATH = "D:\\_Guy\\Studies\\AI-GT\\Micro_RTS_WITH_CNN\\microrts-master\\src\\";
         Reader mr = new MnistReader(PATH+"org/ea/javacnn/data/train-labels.idx1-ubyte", PATH+"org/ea/javacnn/data/train-images.idx3-ubyte");
-//        Reader mr = new PGMReader("pgmfiles/train");
-//        Reader mr = new ImageReader("pngfiles/train");
+//        Reader mr = new PGMReader("pgmfiles/MapTest");
+//        Reader mr = new ImageReader("pngfiles/MapTest");
 
         layers.add(new InputLayer(def, mr.getSizeX(), mr.getSizeY(), 1));
         layers.add(new ConvolutionLayer(def, 5, 32, 1, 2));

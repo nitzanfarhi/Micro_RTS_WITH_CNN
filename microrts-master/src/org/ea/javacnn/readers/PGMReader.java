@@ -150,7 +150,7 @@ public class PGMReader implements Reader {
     }
 
     public static void main(String[] argv) {
-        Reader mr = new PGMReader("pgmfiles/train");
+        Reader mr = new PGMReader("pgmfiles/MapTest");
         System.out.println(mr.size());
         for(int i=0; i<mr.size(); i++) {
             System.out.print(mr.readNextLabel());

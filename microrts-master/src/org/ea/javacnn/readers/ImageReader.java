@@ -124,7 +124,7 @@ public class ImageReader implements Reader {
     }
 
     public static void main(String[] argv) {
-        Reader mr = new ImageReader("pngfiles/train");
+        Reader mr = new ImageReader("pngfiles/MapTest");
         System.out.println(mr.size());
         for(int i=0; i<mr.size(); i++) {
             System.out.print(mr.readNextLabel());
