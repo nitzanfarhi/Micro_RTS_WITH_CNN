@@ -11,10 +11,9 @@ import ai.core.ContinuingAI;
 import ai.core.InterruptibleAI;
 import gui.PhysicalGameStateJFrame;
 import gui.PhysicalGameStatePanel;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -36,7 +35,7 @@ public class RoundRobinTournament {
     public static boolean visualize = false;
     public static int TIMEOUT_CHECK_TOLERANCE = 20;
     public static boolean USE_CONTINUING_ON_INTERRUPTIBLE = true;
-
+    public static PrintWriter fileOutput = null;
     public static void runTournament(List<AI> AIs,
             int playOnlyGamesInvolvingThisAI,
             List<String> maps,
@@ -57,6 +56,17 @@ public class RoundRobinTournament {
         if (progress != null) {
             progress.write("RoundRobinTournament: Starting tournament\n");
         }
+
+        try
+        {
+            FileWriter fw = new FileWriter("DataSet.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            fileOutput = new PrintWriter(bw);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
 
         int wins[][] = new int[AIs.size()][AIs.size()];
         int ties[][] = new int[AIs.size()][AIs.size()];
@@ -162,6 +172,7 @@ public class RoundRobinTournament {
                             trace.addEntry(te);
                         }
                         do {
+                            addSnapShot(gs,ai1,ai2);
                             PlayerAction pa1 = null;
                             PlayerAction pa2 = null;
                             long AI1start = 0, AI2start = 0, AI1end = 0, AI2end = 0;
@@ -254,7 +265,9 @@ public class RoundRobinTournament {
                                 te.addPlayerAction(pa1.clone());
                                 te.addPlayerAction(pa2.clone());
                                 trace.addEntry(te);
+
                             }
+
 
                             gs.issueSafe(pa1);
                             gs.issueSafe(pa2);
@@ -385,5 +398,24 @@ public class RoundRobinTournament {
             progress.write("RoundRobinTournament: tournament ended\n");
         }
         progress.flush();
+        fileOutput.flush();
+        fileOutput.close();
+        GN_Train.sendSnapshots(snapshots);
+    }
+
+
+
+    static int index = 0;
+    private static final int SNAPSHOTS = 1000;
+    static ArrayList<Snapshot>  snapshots = new ArrayList<>();
+    private static void addSnapShot(GameState gs, AI aClass, AI bClass) {
+        if(index%SNAPSHOTS == 0) {
+            String p1 = aClass.getClass().getSimpleName();
+            String p2 =  bClass.getClass().getSimpleName();
+            int snapIDX = index;
+            PhysicalGameState state = gs.getPhysicalGameState();
+            snapshots.add(new Snapshot(snapIDX,p1,p2,state.clone()));
+        }
+        index++;
     }
 }
