@@ -60,7 +60,6 @@ public class JavaCNN {
       }
       return result;
     }
-
     /*
     this is a convenience function for returning the argmax
     prediction, assuming the last layer of the net is a softmax
