@@ -55,10 +55,12 @@ public class FixedOpponentsTournament {
         int wins[][] = new int[AIs.size()][opponentAIs.size()];
         int ties[][] = new int[AIs.size()][opponentAIs.size()];
         int AIcrashes[][] = new int[AIs.size()][opponentAIs.size()];
-        int opponentAIcrashes[][] = new int[opponentAIs.size()][opponentAIs.size()];
+        int opponentAIcrashes[][] = new int[AIs.size()][opponentAIs.size()];
         int AItimeout[][] = new int[AIs.size()][opponentAIs.size()];
         int opponentAItimeout[][] = new int[AIs.size()][opponentAIs.size()];
         double accumTime[][] = new double[AIs.size()][opponentAIs.size()];
+
+        GameStateSampler gss = new GameStateSampler();
 
         out.write("FixedOpponentsTournament\n");
         out.write("AIs\n");
@@ -122,7 +124,7 @@ public class FixedOpponentsTournament {
                         ai2.reset();
 
                         GameState gs = new GameState(pgs.clone(),utt);
-
+                        gss.Reset();
                         if (progress!=null) progress.write("MATCH UP: " + ai1+ " vs " + ai2 + "\n");
                         
                         if (preAnalysis) {
@@ -243,6 +245,7 @@ public class FixedOpponentsTournament {
                             gs.issueSafe(pa1);
                             gs.issueSafe(pa2);
                             gameover = gs.cycle();
+                            gss.Sample(ai1.toString(), ai2.toString(), maps.get(map_idx), iteration, gs);
                         } while (!gameover && 
                                  (gs.getTime() < maxGameLength));
 

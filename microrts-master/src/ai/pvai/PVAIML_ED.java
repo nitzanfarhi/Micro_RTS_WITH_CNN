@@ -340,147 +340,147 @@ public class PVAIML_ED extends AIWithComputationBudget {
         return closestDistance;
     }
 
-    protected String getStrategyByEnemy(String enemy, int alturaMapa) {
+    protected String getStrategyByEnemy(String enemy, int mapSnapshot) {
         String strategy = "";
 
         //mapa 8
-        if (enemy.equals("PuppetSearchMCTS") && alturaMapa == 8) {
+        if (enemy.equals("PuppetSearchMCTS") && mapSnapshot == 8) {
             return "WorkerRushPlusPlusLightDefenseEconomyMilitaryRush";
         }
-        if (enemy.equals("PORangedRush") && alturaMapa == 8) {
+        if (enemy.equals("PORangedRush") && mapSnapshot == 8) {
             return "LightDefenseRangedDefenseEconomyMilitaryRush";
         }
-        if (enemy.equals("POLightRush") && alturaMapa == 8) {
+        if (enemy.equals("POLightRush") && mapSnapshot == 8) {
             return "WorkerDefenseEconomyMilitaryRush";
         }
-        if (enemy.equals("NaiveMCTS") && alturaMapa == 8) {
+        if (enemy.equals("NaiveMCTS") && mapSnapshot == 8) {
             return "WorkerRushPlusPlusLightDefense";
         }
-        if (enemy.equals("RandomBiasedAI") && alturaMapa == 8) {
+        if (enemy.equals("RandomBiasedAI") && mapSnapshot == 8) {
             return "WorkerRushPlusPlusEconomyRushLightDefense";
         }
-        if (enemy.equals("POHeavyRush") && alturaMapa == 8) {
+        if (enemy.equals("POHeavyRush") && mapSnapshot == 8) {
             return "WorkerRushPlusPlusEconomyRushLightDefenseEconomyMilitaryRush";
         }
-        if (enemy.equals("PortfolioAI") && alturaMapa == 8) {
+        if (enemy.equals("PortfolioAI") && mapSnapshot == 8) {
             return "WorkerRushPlusPlusEconomyMilitaryRush";
         }
-        if (enemy.equals("EconomyRush") && alturaMapa == 8) {
+        if (enemy.equals("EconomyRush") && mapSnapshot == 8) {
             return "WorkerRushPlusPlusPORangedRushLightDefense";
         }
-        if (enemy.equals("POWorkerRush") && alturaMapa == 8) {
+        if (enemy.equals("POWorkerRush") && mapSnapshot == 8) {
             return "WorkerRushPlusPlusEconomyMilitaryRush";
         }
         //mapa 16
-        if (enemy.equals("POLightRush") && alturaMapa == 16) {
+        if (enemy.equals("POLightRush") && mapSnapshot == 16) {
             return "WorkerRushPlusPlusEconomyRush";
         }
-        if (enemy.equals("EconomyRush") && alturaMapa == 16) {
+        if (enemy.equals("EconomyRush") && mapSnapshot == 16) {
             return "WorkerRushPlusPlusWorkerDefense";
         }
-        if (enemy.equals("PORangedRush") && alturaMapa == 16) {
+        if (enemy.equals("PORangedRush") && mapSnapshot == 16) {
             return "WorkerRushPlusPlusEconomyRushRangedDefense";
         }
-        if (enemy.equals("PortfolioAI") && alturaMapa == 16) {
+        if (enemy.equals("PortfolioAI") && mapSnapshot == 16) {
             return "WorkerRushPlusPlusEconomyMilitaryRush";
         }
-        if (enemy.equals("POWorkerRush") && alturaMapa == 16) {
+        if (enemy.equals("POWorkerRush") && mapSnapshot == 16) {
             return "WorkerRushPlusPlusPORangedRushWorkerDefense";
         }
-        if (enemy.equals("NaiveMCTS") && alturaMapa == 16) {
+        if (enemy.equals("NaiveMCTS") && mapSnapshot == 16) {
             return "WorkerRushPlusPlusPORangedRushLightDefense";
         }
-        if (enemy.equals("POHeavyRush") && alturaMapa == 16) {
+        if (enemy.equals("POHeavyRush") && mapSnapshot == 16) {
             return "WorkerRushPlusPlusEconomyRushWorkerDefense";
         }
-        if (enemy.equals("PuppetSearchMCTS") && alturaMapa == 16) {
+        if (enemy.equals("PuppetSearchMCTS") && mapSnapshot == 16) {
             return "WorkerRushPlusPlusLightDefenseWorkerDefense";
         }
-        if (enemy.equals("RandomBiasedAI") && alturaMapa == 16) {
+        if (enemy.equals("RandomBiasedAI") && mapSnapshot == 16) {
             return "WorkerRushPlusPlusPOLightRushLightDefenseWorkerDefense";
         }
         //mapa 24
-        if (enemy.equals("POLightRush") && alturaMapa == 24) {
+        if (enemy.equals("POLightRush") && mapSnapshot == 24) {
             return "WorkerRushPlusPlusEconomyRush";
         }
-        if (enemy.equals("PuppetSearchMCTS") && alturaMapa == 24) {
+        if (enemy.equals("PuppetSearchMCTS") && mapSnapshot == 24) {
             return "WorkerRushPlusPlusEconomyRush";
         }
-        if (enemy.equals("PortfolioAI") && alturaMapa == 24) {
+        if (enemy.equals("PortfolioAI") && mapSnapshot == 24) {
             return "WorkerRushPlusPlusPORangedRushWorkerDefense";
         }
-        if (enemy.equals("PORangedRush") && alturaMapa == 24) {
+        if (enemy.equals("PORangedRush") && mapSnapshot == 24) {
             return "PORangedRushWorkerDefenseEconomyMilitaryRush";
         }
-        if (enemy.equals("POHeavyRush") && alturaMapa == 24) {
+        if (enemy.equals("POHeavyRush") && mapSnapshot == 24) {
             return "WorkerRushPlusPlusEconomyMilitaryRush";
         }
-        if (enemy.equals("POWorkerRush") && alturaMapa == 24) {
+        if (enemy.equals("POWorkerRush") && mapSnapshot == 24) {
             return "RangedDefenseWorkerDefenseEconomyMilitaryRush";
         }
-        if (enemy.equals("NaiveMCTS") && alturaMapa == 24) {
+        if (enemy.equals("NaiveMCTS") && mapSnapshot == 24) {
             return "WorkerRushPlusPlusPORangedRushWorkerDefense";
         }
-        if (enemy.equals("RandomBiasedAI") && alturaMapa == 24) {
+        if (enemy.equals("RandomBiasedAI") && mapSnapshot == 24) {
             return "WorkerRushPlusPlusLightDefenseRangedDefense";
         }
-        if (enemy.equals("EconomyRush") && alturaMapa == 24) {
+        if (enemy.equals("EconomyRush") && mapSnapshot == 24) {
             return "WorkerRushPlusPlusPOHeavyRush";
         }
         //mapas 32
-        if (enemy.equals("RandomBiasedAI") && alturaMapa == 32) {
+        if (enemy.equals("RandomBiasedAI") && mapSnapshot == 32) {
             return "POLightRushPORangedRushWorkerDefenseEconomyMilitaryRush";
         }
-        if (enemy.equals("PuppetSearchMCTS") && alturaMapa == 32) {
+        if (enemy.equals("PuppetSearchMCTS") && mapSnapshot == 32) {
             return "WorkerRushPlusPlusPOLightRushEconomyMilitaryRush";
         }
-        if (enemy.equals("PortfolioAI") && alturaMapa == 32) {
+        if (enemy.equals("PortfolioAI") && mapSnapshot == 32) {
             return "EconomyRushPORangedRushRangedDefenseEconomyMilitaryRush";
         }
-        if (enemy.equals("POHeavyRush") && alturaMapa == 32) {
+        if (enemy.equals("POHeavyRush") && mapSnapshot == 32) {
             return "PORangedRushWorkerDefenseEconomyMilitaryRush";
         }
-        if (enemy.equals("POLightRush") && alturaMapa == 32) {
+        if (enemy.equals("POLightRush") && mapSnapshot == 32) {
             return "POLightRushEconomyRushEconomyMilitaryRush";
         }
-        if (enemy.equals("POWorkerRush") && alturaMapa == 32) {
+        if (enemy.equals("POWorkerRush") && mapSnapshot == 32) {
             return "POLightRushEconomyMilitaryRush";
         }
-        if (enemy.equals("EconomyRush") && alturaMapa == 32) {
+        if (enemy.equals("EconomyRush") && mapSnapshot == 32) {
             return "POLightRushEconomyRushEconomyMilitaryRush";
         }
-        if (enemy.equals("PORangedRush") && alturaMapa == 32) {
+        if (enemy.equals("PORangedRush") && mapSnapshot == 32) {
             return "POHeavyRushPORangedRushLightDefenseEconomyMilitaryRush";
         }
-        if (enemy.equals("NaiveMCTS") && alturaMapa == 32) {
+        if (enemy.equals("NaiveMCTS") && mapSnapshot == 32) {
             return "EconomyRushPORangedRushRangedDefenseEconomyMilitaryRush";
         }
         //mapas 64
-        if (enemy.equals("PORangedRush") && alturaMapa == 64) {
+        if (enemy.equals("PORangedRush") && mapSnapshot == 64) {
             return "POHeavyRushRangedDefenseWorkerDefense";
         }
-        if (enemy.equals("NaiveMCTS") && alturaMapa == 64) {
+        if (enemy.equals("NaiveMCTS") && mapSnapshot == 64) {
             return "PORangedRushLightDefenseRangedDefenseEconomyMilitaryRush";
         }
-        if (enemy.equals("POWorkerRush") && alturaMapa == 64) {
+        if (enemy.equals("POWorkerRush") && mapSnapshot == 64) {
             return "LightDefenseRangedDefenseWorkerDefense";
         }
-        if (enemy.equals("POLightRush") && alturaMapa == 64) {
+        if (enemy.equals("POLightRush") && mapSnapshot == 64) {
             return "POLightRushLightDefenseRangedDefense";
         }
-        if (enemy.equals("PortfolioAI") && alturaMapa == 64) {
+        if (enemy.equals("PortfolioAI") && mapSnapshot == 64) {
             return "PORangedRushLightDefenseRangedDefenseEconomyMilitaryRush";
         }
-        if (enemy.equals("RandomBiasedAI") && alturaMapa == 64) {
+        if (enemy.equals("RandomBiasedAI") && mapSnapshot == 64) {
             return "WorkerRushPlusPlusPOLightRushEconomyRushWorkerDefense";
         }
-        if (enemy.equals("PuppetSearchMCTS") && alturaMapa == 64) {
+        if (enemy.equals("PuppetSearchMCTS") && mapSnapshot == 64) {
             return "POLightRushEconomyRushWorkerDefense";
         }
-        if (enemy.equals("EconomyRush") && alturaMapa == 64) {
+        if (enemy.equals("EconomyRush") && mapSnapshot == 64) {
             return "EconomyRushPOHeavyRushRangedDefenseEconomyMilitaryRush";
         }
-        if (enemy.equals("POHeavyRush") && alturaMapa == 64) {
+        if (enemy.equals("POHeavyRush") && mapSnapshot == 64) {
             return "LightDefenseWorkerDefenseEconomyMilitaryRush";
         }
 

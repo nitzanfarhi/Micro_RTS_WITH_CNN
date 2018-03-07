@@ -172,7 +172,6 @@ public class RoundRobinTournament {
                             trace.addEntry(te);
                         }
                         do {
-                            addSnapShot(gs,ai1,ai2);
                             PlayerAction pa1 = null;
                             PlayerAction pa2 = null;
                             long AI1start = 0, AI2start = 0, AI1end = 0, AI2end = 0;
@@ -400,22 +399,5 @@ public class RoundRobinTournament {
         progress.flush();
         fileOutput.flush();
         fileOutput.close();
-        GN_Train.sendSnapshots(snapshots);
-    }
-
-
-
-    static int index = 0;
-    private static final int SNAPSHOTS = 1000;
-    static ArrayList<Snapshot>  snapshots = new ArrayList<>();
-    private static void addSnapShot(GameState gs, AI aClass, AI bClass) {
-        if(index%SNAPSHOTS == 0) {
-            String p1 = aClass.getClass().getSimpleName();
-            String p2 =  bClass.getClass().getSimpleName();
-            int snapIDX = index;
-            PhysicalGameState state = gs.getPhysicalGameState();
-            snapshots.add(new Snapshot(snapIDX,p1,p2,state.clone()));
-        }
-        index++;
     }
 }

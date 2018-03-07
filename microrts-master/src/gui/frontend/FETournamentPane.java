@@ -392,6 +392,7 @@ public class FETournamentPane extends JPanel {
                     }
                     for(int i = 0;i<mapListModel.getSize();i++) {
                         String mapname = (String)mapListModel.getElementAt(i);
+                        System.out.println(mapname);
                         maps.add(mapname);
                     }
                     
